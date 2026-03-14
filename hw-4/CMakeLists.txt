@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-project(buffered_channel LANGUAGES CXX)
+project(mutex LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -29,21 +29,31 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googlebenchmark)
 
-add_executable(buffered_channel_test
+add_library(mutex_lib
+    mutex.cpp
+)
+target_include_directories(mutex_lib
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+add_executable(mutex_test
     test.cpp
 )
-target_link_libraries(buffered_channel_test
+target_link_libraries(mutex_test 
     PRIVATE
-    Threads::Threads
-    GTest::gtest
+    mutex_lib
+    Threads::Threads 
+    GTest::gtest 
     GTest::gtest_main
 )
 
-add_executable(buffered_channel_benchmark
+add_executable(mutex_benchmark
     benchmark.cpp
 )
-target_link_libraries(buffered_channel_benchmark
+target_link_libraries(mutex_benchmark
     PRIVATE
+    mutex_lib
     Threads::Threads
-    benchmark::benchmar
+    benchmark::benchmark
 )

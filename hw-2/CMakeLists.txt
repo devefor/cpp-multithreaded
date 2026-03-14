@@ -30,8 +30,13 @@ set(BENCHMARK_ENABLE_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest googlebenchmark)
 
-add_library(apply_function INTERFACE)
-target_include_directories(apply_function INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(apply_function
+    INTERFACE
+)
+target_include_directories(apply_function
+    INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 add_executable(apply_function_tests
     apply_function_test.cpp

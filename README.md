@@ -2,6 +2,9 @@
 
 ## HW-1
 
+```bash
+```
+
 ## HW-2
 
 ```bash
@@ -24,8 +27,20 @@ python3 ./hw-3/check_benchmark.py ./hw-3/benchmark.json
 ## HW-4
 
 ```bash
+cmake -S hw-4 -B hw-4/build && cmake --build hw-4/build
+./hw-4/build/mutex_test
+./hw-4/build/mutex_benchmark
+
+./hw-4/build/mutex_benchmark --benchmark_format=json --benchmark_out=./hw-4/benchmark.json
+python3 ./hw-4/check_benchmark.py ./hw-4/benchmark.json
 ```
 
 ## HW-5
 
+```bash
+```
+
 ## HW-6
+
+```bash
+```
