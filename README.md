@@ -38,6 +38,24 @@ python3 ./hw-4/check_benchmark.py ./hw-4/benchmark.json
 ## HW-5
 
 ```bash
+cmake -S hw-5 -B hw-5/build && cmake --build hw-5/build
+./hw-5/build/mpsc_queue_test
+./hw-5/build/mpsc_queue_benchmark
+```
+
+**mode: text**
+```bash
+./hw-5/run-demo.sh /mpsc_demo 65536 text
+```
+
+**mode: number**
+```bash
+./hw-5/run-demo.sh /mpsc_demo 65536 number
+```
+
+**mode: all**
+```bash
+./hw-5/run-demo.sh /mpsc_demo 65536 all
 ```
 
 ## HW-6
