@@ -38,11 +38,8 @@ public:
 
     // Any state -> 0
     void Unlock() {
-        // state = 1 -> 0 / 2 -> 1
-        const uint32_t prev = mtx_state.fetch_sub(1, std::memory_order_release);
-        if (prev != 1) {
-            // state 1 -> 0
-            mtx_state.store(0, std::memory_order_release);
+        const uint32_t prev = mtx_state.exchange(0, std::memory_order_release);
+        if (prev == 2) {
             // wake up signal to one
             FutexWakeOne(static_cast<void*>(&mtx_state));
         } 
