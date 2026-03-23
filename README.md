@@ -3,6 +3,9 @@
 ## HW-1
 
 ```bash
+cmake -S hw-1 -B hw-1/build && cmake --build hw-1/build
+./hw-1/build/process_pool_test
+./hw-1/build/process_pool_benchmark
 ```
 
 ## HW-2
